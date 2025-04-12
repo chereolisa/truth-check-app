@@ -1,4 +1,3 @@
-import React from 'react';
 import { Routes, Route } from 'react-router-dom';
 import Navbar from './components/NavBar';
 import Home from './pages/Home';
@@ -6,7 +5,6 @@ import Signup from './pages/SignUp';
 import Login from './pages/Login';
 import './index.css'; // Import global styles
 import Footer from './components/Footer'; // Import Footer
-import LanguageSwitcher from './components/LanguageSwitcher'; // Import LanguageSwitcher
 import Info from './components/Info';
 import Features from './components/Features';
 import HowItWorks from './components/HowItWorks';

@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';  // Use useNavigate for routing in react-router-dom v6
 import ImageUploader from '../components/ImageUploader';
-import RecentChecks from '../components/RecentChecks';
 
 function VerifyNow() {
   const navigate = useNavigate();  // Initialize the navigate function

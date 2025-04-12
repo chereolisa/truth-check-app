@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import  { useEffect } from 'react';
 
 // Extend the window interface to include googleTranslateElementInit
 declare global {
