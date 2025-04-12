@@ -1,35 +1,58 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import React from 'react';
+import { Routes, Route } from 'react-router-dom';
+import Navbar from './components/NavBar';
+import Home from './pages/Home';
+import Signup from './pages/SignUp';
+import Login from './pages/Login';
+import './index.css'; // Import global styles
+import Footer from './components/Footer'; // Import Footer
+import LanguageSwitcher from './components/LanguageSwitcher'; // Import LanguageSwitcher
+import Info from './components/Info';
+import Features from './components/Features';
+import HowItWorks from './components/HowItWorks';
+import Team from './pages/Team';
+import FAQ from './pages/FAQ';
+import VerifyNow from './pages/VerifyNow';
+import Processing from './pages/Processing';
+import Result from './pages/Result';
+import Register from './pages/Register';
+
+
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+    <div className="flex flex-col min-h-screen bg-gray-100">
+      {/* Navbar */}
+      <Navbar />
+
+      <div className="translate-wrapper">
+        <div id="google_translate_element"></div>
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+
+      {/* Hero Section */}
+      {/* Main Content */}
+      <main className="flex-1 p-4 sm:p-6 md:p-8">
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/signup" element={<Signup />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/features" element={<Features />} />
+          <Route path="/how-it-works" element={<HowItWorks />} />
+          <Route path="/info" element={<Info />} />
+          <Route path="/team" element={<Team />} />
+          <Route path="/faq" element={<FAQ />} />
+          <Route path="/verify-now" element={<VerifyNow />} />
+          <Route path="/processing" element={<Processing />} />
+          <Route path="/result" element={<Result />} />
+          <Route path="/register" element={<Register />} />
+        </Routes>
+      </main>
+      
+      {/* Footer */}
+        <Footer />
+    </div>
+  );
 }
 
-export default App
+export default App;
+
