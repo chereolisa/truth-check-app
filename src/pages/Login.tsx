@@ -15,7 +15,7 @@ function Login() {
     console.log('Form submitted:', formData)
   
     // Your API login URL
-    const loginUrl = 'https://your-api-url.com/login'
+    const loginUrl = 'https://truthcheck.onrender.com/api/v1/auth/login'
   
     try {
       const response = await fetch(loginUrl, {

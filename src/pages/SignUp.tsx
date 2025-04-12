@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import  { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 
 function Signup() {
@@ -14,7 +14,7 @@ function Signup() {
     e.preventDefault()
 
     // Example API URL for signup (replace with your actual API endpoint)
-    const signupUrl = 'https://your-api-url.com/signup'
+    const signupUrl = 'https://truthcheck.onrender.com/API/v1/auth/register'
 
     try {
       const response = await fetch(signupUrl, {

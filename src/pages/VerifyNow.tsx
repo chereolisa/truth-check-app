@@ -8,7 +8,8 @@ function VerifyNow() {
   const [recentChecks, setRecentChecks] = useState<Array<{ text: string, timestamp: number }>>([]);
   const [imageFile, setImageFile] = useState<File | null>(null);
 
-  // Handle the input change
+
+  // Handle the input change for search query
   const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSearchQuery(e.target.value);
   };
@@ -37,8 +38,28 @@ function VerifyNow() {
     };
     setRecentChecks([newSearch, ...recentChecks].slice(0, 5));  // Keep the latest 5 searches
 
-    // Navigate to the processing page
-    navigate('/processing');  // Navigate to the '/processing' route
+    // Make an API call to verify the text (assuming the API endpoint is /verify-text)
+    // For now, I'm using a mock API link.
+    const mockApiLink = 'https://truthcheck.onrender.com/api/v1/auth/register/fact-check'; // Replace with your actual API endpoint
+
+    fetch(mockApiLink, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ query }),  // Pass the query in the request body
+    })
+      .then(response => response.json())
+      .then(data => {
+        console.log('Text check result:', data);
+        // Handle the response (e.g., store the result, show messages, etc.)
+        // Navigate to the processing page to show results
+        navigate('/processing');  // Navigate to the '/processing' route
+      })
+      .catch(error => {
+        console.error('Error checking text:', error);
+        alert('An error occurred while verifying the text.');
+      });
   };
 
   // Check if the submit button can be clicked (disabled if no query or image)
@@ -78,6 +99,7 @@ function VerifyNow() {
             </button>
           </div>
 
+          {/* Image Uploader */}
           <div className="image-uploader">
             <ImageUploader onImageChange={handleImageChange} /> {/* Pass handleImageChange to the uploader */}
           </div>
